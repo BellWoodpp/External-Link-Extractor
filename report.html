@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>External Link Extractor</title>
+    <style>
+      :root {
+        --bg: #f5f5f5;
+        --card: #fff;
+        --text: #222;
+        --muted: #666;
+        --border: #e8e8e8;
+        --green: #27ae60;
+        --red: #e74c3c;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--text);
+      }
+      .header {
+        background: var(--card);
+        padding: 16px 18px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        margin-bottom: 14px;
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 18px;
+      }
+      .meta {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        background: var(--green);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 650;
+        margin-top: 10px;
+      }
+      .btn:hover {
+        filter: brightness(0.95);
+      }
+      .table-wrap {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+        font-size: 13px;
+        word-break: break-word;
+      }
+      th {
+        background: #fafafa;
+        font-size: 12px;
+        color: #333;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      .tag {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .tag-follow {
+        background: var(--green);
+      }
+      .tag-nofollow {
+        background: var(--red);
+      }
+      .error {
+        background: #fff0f0;
+        border: 1px solid #ffd0d0;
+        border-radius: 10px;
+        padding: 14px 16px;
+        color: #7a0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="title">外部链接报告</h1>
+      <p class="meta" id="meta"></p>
+      <a class="btn" id="download" href="#" download>下载 CSV</a>
+    </div>
+    <div class="table-wrap" id="tableWrap" hidden>
+      <table>
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>锚文本</th>
+            <th>Rel</th>
+            <th>Target</th>
+            <th>可见性</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="error" id="error" hidden></div>
+
+    <script src="report.js"></script>
+  </body>
+</html>
+

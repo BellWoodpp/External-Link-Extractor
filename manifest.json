@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "External Link Extractor",
+  "version": "0.1.0",
+  "description": "一键高亮并导出当前页面外部链接（CSV）。",
+  "icons": {
+    "128": "External-Link-Extractor-128x128.png"
+  },
+  "action": {
+    "default_title": "Extract external links",
+    "default_icon": {
+      "128": "External-Link-Extractor-128x128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage"]
+}
